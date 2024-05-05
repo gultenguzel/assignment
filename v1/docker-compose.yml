@@ -1,0 +1,25 @@
+version: '2.26.1'
+services:
+  api-gateway:
+    build:
+      context: ./v1
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    depends_on:
+      - service-a
+      - service-b
+
+  service-a:
+    build:
+      context: ./v1
+      dockerfile: Dockerfile
+    ports:
+      - 3001:3001
+
+  service-b:
+    build:
+      context: ./v1
+      dockerfile: Dockerfile
+    ports:
+      - 3002:3002
